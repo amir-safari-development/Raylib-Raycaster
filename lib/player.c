@@ -44,3 +44,37 @@ void InitMobility(float moveSpeed)
     if (WORLD_MAP[(int)newY / TILE_SIZE][(int)player.pos.x / TILE_SIZE] == 0 && newY <= ROWS * TILE_SIZE && newY >= 0)
         player.pos.y = newY;
 }
+
+void InitRotation(float rotSpeed)
+{
+    double oldDirX = player.dir.x;
+
+    if (IsKeyDown(KEY_UP))
+    {
+        if (player.dir.x != 0)
+        {
+            float angle = (player.dir.x > 0 ? 1 : -1) * rotSpeed;
+            player.dir.x = player.dir.x * cos(angle) - player.dir.y * sin(angle);
+            player.dir.y = oldDirX * sin(angle) + player.dir.y * cos(angle);
+        }
+    }
+    else if (IsKeyDown(KEY_DOWN))
+    {
+        if (player.dir.x != 0)
+        {
+            float angle = (player.dir.x < 0 ? 1 : -1) * rotSpeed;
+            player.dir.x = player.dir.x * cos(angle) - player.dir.y * sin(angle);
+            player.dir.y = oldDirX * sin(angle) + player.dir.y * cos(angle);
+        }
+    }
+    else if (IsKeyDown(KEY_RIGHT))
+    {
+        player.dir.x = player.dir.x * cos(-rotSpeed) - player.dir.y * sin(-rotSpeed);
+        player.dir.y = oldDirX * sin(-rotSpeed) + player.dir.y * cos(-rotSpeed);
+    }
+    else if (IsKeyDown(KEY_LEFT))
+    {
+        player.dir.x = player.dir.x * cos(rotSpeed) - player.dir.y * sin(rotSpeed);
+        player.dir.y = oldDirX * sin(rotSpeed) + player.dir.y * cos(rotSpeed);
+    }
+}
