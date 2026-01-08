@@ -1,31 +1,42 @@
-#include <stdio.h>
 #include "raylib.h"
 #include "map.h"
 #include "player.h"
+#include <stdio.h>
 
 int main()
 {
-    int isPlayerSet = 0;
+    ViewMode mode = STATE_2D;
 
-    InitWindow(COLUMNS * TILE_SIZE, ROWS * TILE_SIZE, "Raycaster");
-
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Raycaster");
     SetTargetFPS(60);
+
+    PlacePlayer();
 
     while (!WindowShouldClose())
     {
         float deltaTime = GetFrameTime();
 
-        BeginDrawing();
-
-        ClearBackground(BLACK);
-
-        DrawMap(&isPlayerSet);
-
-        DrawPlayer();
+        if (IsKeyPressed(KEY_M))
+            mode = mode == STATE_2D ? STATE_3D : STATE_2D;
 
         InitMobility(BASE_SPEED * deltaTime);
-
         InitRotation(BASE_ROT_SPEED * deltaTime);
+
+        BeginDrawing();
+
+        if (mode == STATE_2D)
+            InitEditMap();
+        else
+        {
+            DrawRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 2, LIGHTGRAY);
+            DrawRectangle(0, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT / 2, WHITE);
+
+            for (int x = 0; x <= SCREEN_WIDTH; x++)
+                CastRays(x);
+        }
+
+        DrawMap(mode);
+        DrawPlayer(mode);
 
         EndDrawing();
     }
