@@ -3,12 +3,25 @@
 
 #include "player.h"
 
-#define TILE_SIZE 64
-#define ROWS 10
-#define COLUMNS 10
+typedef enum
+{
+    STATE_2D,
+    STATE_3D
+} ViewMode;
+
+#define TILE_SIZE 65
+
+#define ROWS 14
+#define COLUMNS 13
+
+#define SCREEN_WIDTH (COLUMNS * TILE_SIZE)
+#define SCREEN_HEIGHT (ROWS * TILE_SIZE)
+
+#define MINIMAP_SCALE 0.2f
 
 extern int WORLD_MAP[ROWS][COLUMNS];
 
-void DrawMap(int *isPlayerSet);
+void DrawMap(int mode);
+void InitEditMap();
 
 #endif
