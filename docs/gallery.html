@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gallery - RayCaster Pro</title>
+    <link rel="stylesheet" href="simpleLightbox.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -22,23 +23,29 @@
       <div class="gallery-flex">
         <div class="image-wrapper">
           <div class="gallery-item">
-            <img src="" alt="3D Gameplay View" />
+            <a href="./images/3d-view.png">
+              <img src="./images/3d-view.png" alt="3D Gameplay View" />
+            </a>
           </div>
-          <p class="caption">Caption</p>
+          <p class="caption">3D Gameplay View</p>
         </div>
 
         <div class="image-wrapper">
           <div class="gallery-item">
-            <img src="" alt="2D Minimap" />
+            <a href="./images/minimap.png">
+              <img src="./images/minimap.png" alt="2D Minimap" />
+            </a>
           </div>
-          <p class="caption">Caption</p>
+          <p class="caption">2D Minimap</p>
         </div>
 
         <div class="image-wrapper">
           <div class="gallery-item">
-            <img src="" alt="Verified on Ubuntu Linux" />
+            <a href="./images/linux-proof.png">
+              <img src="./images/linux-proof.png" alt="Verified on Ubuntu Linux" />
+            </a>
           </div>
-          <p class="caption">Caption</p>
+          <p class="caption">Verified on Ubuntu Linux</p>
         </div>
       </div>
     </section>
@@ -47,5 +54,10 @@
       <p>Developed by Amirreza Safari | Student ID: 404521426</p>
       <p>&copy; 2026 Open Source License</p>
     </footer>
+
+    <script src="./simpleLightbox.js"></script>
+    <script>
+      new SimpleLightbox({ elements: ".gallery-item a" });
+    </script>
   </body>
 </html>

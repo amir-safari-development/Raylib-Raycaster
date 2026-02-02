@@ -38,6 +38,8 @@ int main()
         DrawMap(mode);
         DrawPlayer(mode);
 
+        DrawText(TextFormat("FPS: %i", GetFPS()), 10, SCREEN_HEIGHT - 40, 20, RED);
+
         EndDrawing();
     }
 
