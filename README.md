@@ -10,7 +10,7 @@
     <a href="https://github.com/amir-safari-development/Raylib-Raycaster/blob/main/LICENSE">
       <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
     </a>
-    <a href="#">
+    <a href="https://en.wikipedia.org/wiki/C99">
       <img src="https://img.shields.io/badge/Language-C99-blue.svg" alt="Language">
     </a>
     <a href="https://www.raylib.com/">
