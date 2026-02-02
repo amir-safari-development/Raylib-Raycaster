@@ -7,7 +7,7 @@
   </p>
 
   <p>
-    <a href="https://github.com/amir-safari-development/Raylib-Raycaster/LICENSE">
+    <a href="https://github.com/amir-safari-development/Raylib-Raycaster/blob/main/LICENSE">
       <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
     </a>
     <a href="#">
