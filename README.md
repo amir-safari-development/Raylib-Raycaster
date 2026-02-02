@@ -7,10 +7,10 @@
   </p>
 
   <p>
-    <a href="https://github.com/amir-safari-development/Raylib-Raycastermain/LICENSE">
+    <a href="https://github.com/amir-safari-development/Raylib-Raycaster/blob/main/LICENSE">
       <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
     </a>
-    <a href="#">
+    <a href="https://en.wikipedia.org/wiki/C99">
       <img src="https://img.shields.io/badge/Language-C99-blue.svg" alt="Language">
     </a>
     <a href="https://www.raylib.com/">
@@ -20,7 +20,7 @@
 
   <br>
 
-  <a href="https://github.com/amir-safari-development/Raylib-Raycaster">
+  <a href="https://amir-safari-development.github.io/Raylib-Raycaster/">
     <img src="https://img.shields.io/badge/🌐_View_Project_Website-Live_Demo-2ea44f?style=for-the-badge" alt="Website Link">
   </a>
 
