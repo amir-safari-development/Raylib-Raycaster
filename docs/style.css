@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #1a1a1a;
   --accent-color: #e74c3c;
+  --primary-color: #1a1a1a;
   --text-color: #333;
   --bg-light: #f8f9fa;
   --white: #ffffff;
@@ -23,13 +23,44 @@ body {
   min-height: 100dvh;
 }
 
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hamburger .bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--white);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
 .navbar {
   background-color: var(--primary-color);
-  padding-inline: 3rem;
   height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-inline: 1.5rem;
+  position: relative;
 }
 
 .nav-brand {
@@ -39,6 +70,7 @@ body {
 }
 
 .nav-links {
+  text-align: center;
   list-style: none;
   display: flex;
   gap: 20px;
@@ -176,26 +208,46 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .hero {
-    height: 80vh;
-  }
-
   .hero h1 {
     font-size: 2rem;
   }
 }
 
-@media (max-width: 520px) {
-  .navbar {
-    flex-direction: column;
-    gap: 20px;
-    height: auto;
-    padding-block: 1.2rem;
+@media (max-width: 600px) {
+  .hamburger {
+    display: flex;
   }
 
   .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    gap: 0;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    box-shadow: 0 4px 6px #0000001a;
+  }
+
+  .nav-links.active {
+    max-height: 300px;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 1.5rem 0;
+    border-top: 1px solid #ffffff1a;
+    width: 100%;
   }
 }
 
