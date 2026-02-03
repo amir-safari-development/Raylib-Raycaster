@@ -21,7 +21,7 @@
   <br>
 
   <a href="https://amir-safari-development.github.io/Raylib-Raycaster/">
-    <img src="https://img.shields.io/badge/Webassembly-6954ef" alt="Website Link">
+    <img src="https://img.shields.io/badge/🌐_View_Webassembly_Website-Live_Demo-6954ef?style=for-the-badge" alt="Website Link">
   </a>
 
   <a href="https://raylib-raycaster.netlify.app/web-demo/game">
