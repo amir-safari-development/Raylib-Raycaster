@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #1a1a1a;
   --accent-color: #e74c3c;
+  --primary-color: #1a1a1a;
   --text-color: #333;
   --bg-light: #f8f9fa;
   --white: #ffffff;
@@ -23,13 +23,45 @@ body {
   min-height: 100dvh;
 }
 
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hamburger .bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--white);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Optional: Animation for X shape when active */
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
 .navbar {
   background-color: var(--primary-color);
-  padding-inline: 3rem;
   height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-inline: 1.5rem;
+  position: relative;
 }
 
 .nav-brand {
@@ -39,6 +71,7 @@ body {
 }
 
 .nav-links {
+  text-align: center;
   list-style: none;
   display: flex;
   gap: 20px;
@@ -176,26 +209,50 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .hero {
-    height: 80vh;
-  }
-
   .hero h1 {
     font-size: 2rem;
   }
 }
 
-@media (max-width: 520px) {
-  .navbar {
-    flex-direction: column;
-    gap: 20px;
-    height: auto;
-    padding-block: 1.2rem;
+@media (max-width: 600px) {
+  /* Show the hamburger on mobile */
+  .hamburger {
+    display: flex;
   }
 
+  /* Navigation Links - Mobile Layout */
   .nav-links {
+    position: absolute;
+    top: 100%; /* Puts it directly below the navbar */
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    gap: 0; /* Remove gap, use padding instead */
+
+    /* Animation Properties */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* When the class 'active' is added via JS, the menu slides down */
+  .nav-links.active {
+    max-height: 300px; /* Large enough to fit content */
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
   }
 }
 
